@@ -62,7 +62,19 @@ def editar():
         pausa()
         mostrarMenu = True
 
+def deletar(contato):
+    reset()
 
+    i = 0
+    print("CONTATOS: \n")
+    for contato in contatos:
+        nome = contato["name"]
+        print(f"{i}. {nome}")
+        i += 1
+
+    cnt = int (input("\nQUAL CONTANTO VC QUER DELETAR? DIGITE O NUMERO: "))
+    contato_para_remover = contatos[cnt]
+    contatos.remove(contato_para_remover)
 
 #Lista de opcoes
 options = [
@@ -82,7 +94,7 @@ def mostrar_opcoes():
 
 def criar_contato():
     name = input("DIGITE O NOME: ")
-    telefone = input("DIGITE O TELEGONE: ")
+    telefone = input("DIGITE O TELEFONE: ")
     email = input("DIGITE O EMAIL: ")
     
     contato = {
@@ -110,7 +122,7 @@ while True:
         case 2: 
             editar()
         case 3: 
-            print("DELETAR")
+            deletar(contato)
         case 4: 
             print("MARCA COMO FAVORITO")
         case 5: 
